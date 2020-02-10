@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
+
+<body>
+  <iframe id="fr1" src="frame.html"></iframe>
+  <iframe id="fr2" src="frame1.html"></iframe>
+  <input type="text" id="text" />
+  <select id="select"></select>
+  <script>
+    let iframe = document.getElementById("fr2");
+    let text = document.getElementById("text");
+    text.addEventListener("mouseenter", e => {
+      let value = e.target.value;
+      let select = document.getElementById("select");
+      if (!value.match(/[a-z]/g) && e.target.value.length > 0) {
+        let form = iframe.contentDocument.querySelector("form");
+        let array = Array.prototype.slice.call(form.children);
+        let string = "";
+        for (let i = 1; i <= array.length; i++) {
+          string += `<option>${array[i - 1].nodeName}</option>`;
+        }
+        select.innerHTML = string;
+      }
+      else {
+        select.innerHTML = ``;
+      }
+    });
+  </script>
+</body>
+
+</html>

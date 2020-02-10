@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    Array.prototype.replace = function (number, ...replaceItems) {
+      this.splice(0, number, ...replaceItems);
+        if (replaceItems == undefined)
+          delete this[i];
+    };
+
+    var arr = [1, 2, 3, 4, 5];
+    
+    arr.replace(2, 'ab', 'vd', 'fe');
+    console.log(arr);
+
+    arr2 = [1, 2, 3, 4, 5];
+    arr2.replace(1);
+    console.log(arr2);
+
+  </script>
+</body>
+
+</html>

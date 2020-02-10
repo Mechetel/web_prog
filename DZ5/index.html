@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      color: #000;
+      font-weight: 300;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      text-align: center;
+      font-family: Helvetica neue, roboto;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <p>число что надо разделить</p>
+    <input type="text" class="number">
+
+    <p>количество символов</p>
+    <input type="text" class="chunkSize">
+    <br>
+
+    <button>Разделить</button>
+    <p id="pi"></p>
+  </div>
+  <script>
+
+    let input = document.querySelector('input');
+
+    function chuncks(array, chunkSize) {
+      const chunckedArray = [];
+      for (let i = array.length; i > 0; i -= chunkSize) {
+        let step = i - chunkSize > 0 ? i - chunkSize : 0;
+        chunckedArray.push(array.slice(step, i));
+      }
+      return chunckedArray;     
+    }
+
+    document.querySelector('button').addEventListener('click', (e) => {
+      document.getElementById('pi').innerText = '';
+      let chunkSize = parseInt(document.querySelector('.chunkSize').value);
+      const result = chuncks(input.value.split(''), chunkSize);
+      result.reverse().map((item) => {
+        document.getElementById('pi').insertAdjacentHTML('beforeend',`<span>${item.join('')} </span>`)
+      });
+    });
+
+  </script>
+</body>
+
+</html>
