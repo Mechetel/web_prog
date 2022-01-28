@@ -16,11 +16,11 @@
 	  	clearInterval(interval);
 	   	document.getElementById("content1").innerText = "";
 	   	document.getElementById("content2").innerText = "";
-	  	let array1 = string1.split("");
+	  	let array1 = string1.split(");
 	  	let array2 = string2.split("");
 	  	interval = setInterval(() => {
 	  		array1.unshift(array1.pop());
-	  		array2.unshift(array2.pop());
+	  		array2.push(array2.shift());
 	  		document.getElementById("content1").innerText = array1.join("");
 	  		document.getElementById("content2").innerText = array2.join("");
 	 	}, 500);

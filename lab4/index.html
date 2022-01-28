@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>lab4 pani</title>
+</head>
+<body>
+  <iframe src="./frames/frame_1.html" name="frame1" style="width:100%;height:150px"></iframe>
+  <iframe src="./frames/frame_2.html" name="frame2" style="width:100%;height:150px"></iframe>
+  <iframe src="./frames/frame_3.html" name="frame3" style="width:100%;height:150px"></iframe>
+  <iframe src="./frames/frame_4.html" name="frame4" style="width:100%;height:150px"></iframe>
+  <script>
+    var num_of_frames = window.length;  //get number of frames
+    for (var i = 0; i < num_of_frames; i++) {  //iterate each frame
+      console.log(window[i].name);  //print in console frame name
+    }
+  </script>
+</body>
+</html>

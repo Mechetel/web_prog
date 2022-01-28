@@ -1,0 +1,14 @@
+body {
+  background:blue;
+}
+
+iframe {
+  background:white;
+  margin-top:5px;
+  width:49%;
+  height:900px;
+}
+
+input {
+  margin-top:5px;
+}

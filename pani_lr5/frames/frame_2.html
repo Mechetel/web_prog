@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/frame_style.css">
+</head>
+<body>
+  <div>
+    <form name="btn1" id="robby">
+      <input type="button" onclick="alert(document.forms[0].id);" value="robby's form" />
+    </form>
+
+    <form name="btn2" id="dave">
+      <input type="button" onclick="alert(document.forms[1].id);" value="dave's form" />
+    </form>
+
+    <form name="btn3" id="paul">
+      <input type="button" onclick="alert(document.forms[2].id);" value="paul's form"/>
+    </form>
+  </div>
+  <div>
+    <form name="login" id="login_input">
+      <input name="email" type="text" placeholder="test@example.com">
+      <input name="password" type="text" placeholder="password">
+      <input type="submit" value="Log In">
+    </form>
+  </div>
+  <div>
+    <form name="name" id="name_input">
+      <label for="fname">First Name</label>
+      <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+      <label for="lname">Last Name</label>
+      <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+      <label for="country">Country</label>
+      <select id="country" name="country">
+        <option value="australia">Australia</option>
+        <option value="canada">Canada</option>
+        <option value="usa">USA</option>
+      </select>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+</body>
+</html>

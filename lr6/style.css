@@ -1,0 +1,41 @@
+#container{
+  width: 800px;
+  height: 500px;
+  position: relative;
+  background: yellow;
+  border: 2px solid black;
+}
+
+#myButton {
+  top: 550px
+}
+
+#icon1{
+  width: 100px;
+  height: 100px;
+  top: 50px;
+  left: 50px;
+  position: absolute;
+  transition: all 1s;
+  background: red;
+}
+
+#icon2{
+  width: 100px;
+  height: 100px;
+  top: 50px;
+  left: 200px;
+  position: absolute;
+  transition: all 1s;
+  background: green;
+}
+
+#icon3{
+  width: 100px;
+  height: 100px;
+  top: 50px;
+  left: 350px;
+  position: absolute;
+  transition: all 1s;
+  background: blue;
+}
