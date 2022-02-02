@@ -12,27 +12,27 @@ function moveDiv(divRef) {
 
   var newLeft = parseInt(getCssProperty(element, "left"));
   var newTop  = parseInt(getCssProperty(element, "top"));
-  console.log(newLeft, newTop);
+  const constMoveDistance = 100;
 
   if (newLeft < 50 || newTop < 50) {
-    element.style.left = (newLeft + 50) + 'px';
-    element.style.top = (newTop + 50) + 'px';
+    element.style.left = (newLeft + constMoveDistance) + 'px';
+    element.style.top = (newTop + constMoveDistance) + 'px';
   } else if (newLeft > 650 || newTop > 350) {
-    element.style.left = (newLeft - 50) + 'px';
-    element.style.top = (newTop - 50) + 'px';
+    element.style.left = (newLeft - constMoveDistance) + 'px';
+    element.style.top = (newTop - constMoveDistance) + 'px';
   } else {
     switch (directions_array[random]) {
       case "right":
-        element.style.left = (newLeft + 50) + 'px';
+        element.style.left = (newLeft + constMoveDistance) + 'px';
         break;
       case "left":
-        element.style.left = (newLeft - 50) + 'px';
+        element.style.left = (newLeft - constMoveDistance) + 'px';
         break;
       case "bottom":
-        element.style.top = (newTop + 50) + 'px';
+        element.style.top = (newTop + constMoveDistance) + 'px';
         break;
       case "top":
-        element.style.top = (newTop - 50) + 'px';
+        element.style.top = (newTop - constMoveDistance) + 'px';
         break;
       default:
         break;
