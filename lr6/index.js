@@ -4,43 +4,56 @@ function getCssProperty(elem, property){
   return window.getComputedStyle(elem,null).getPropertyValue(property);
 }
 
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+var timers = [];
+
 function moveDiv(divRef) {
   var element = document.getElementById(divRef);
+  var container = document.getElementById("container");
+
+  var itemLeft = parseInt(getCssProperty(element, "left"));
+  var itemTop  = parseInt(getCssProperty(element, "top"));
+
+  var containerHeight = parseInt(getCssProperty(container, "height"));
+  var containerWidht  = parseInt(getCssProperty(container, "width"));
 
   let random = Math.floor(Math.random() * directions_array.length);
-  console.log(random, directions_array[random]);
 
-  var newLeft = parseInt(getCssProperty(element, "left"));
-  var newTop  = parseInt(getCssProperty(element, "top"));
-  const constMoveDistance = 100;
-
-  if (newLeft < 50 || newTop < 50) {
-    element.style.left = (newLeft + constMoveDistance) + 'px';
-    element.style.top = (newTop + constMoveDistance) + 'px';
-  } else if (newLeft > 650 || newTop > 350) {
-    element.style.left = (newLeft - constMoveDistance) + 'px';
-    element.style.top = (newTop - constMoveDistance) + 'px';
-  } else {
-    switch (directions_array[random]) {
-      case "right":
-        element.style.left = (newLeft + constMoveDistance) + 'px';
-        break;
-      case "left":
-        element.style.left = (newLeft - constMoveDistance) + 'px';
-        break;
-      case "bottom":
-        element.style.top = (newTop + constMoveDistance) + 'px';
-        break;
-      case "top":
-        element.style.top = (newTop - constMoveDistance) + 'px';
-        break;
-      default:
-        break;
-    }
+  switch (directions_array[random]) {
+    case "right":
+      element.style.left = ( containerWidht - 100 ) + 'px';
+      element.style.top = ( getRandomArbitrary(50, containerHeight - 100) ) + 'px';
+      break;
+    case "left":
+      element.style.left = 0 + 'px';
+      element.style.top = ( getRandomArbitrary(50, containerHeight - 100) ) + 'px';
+      break;
+    case "bottom":
+      element.style.left = ( getRandomArbitrary(50, containerWidht - 100) ) + 'px';
+      element.style.top = ( containerHeight - 100 ) + 'px';
+      break;
+    case "top":
+      element.style.left = ( getRandomArbitrary(50, containerWidht - 100) ) + 'px';
+      element.style.top = 0 + 'px';
+      break;
+    default:
+      break;
   }
+
+  console.log(directions_array[random]);
+  console.log(element.style.left, element.style.top);
+  timers += window.setTimeout(() => { moveDiv(divRef); }, 2000);
 }
 
 function moveToDefaultPosition() {
+  for (var timer in timers) {
+    window.clearTimeout(timer);
+    timer = undefined;
+  }
+
   var icon1 = document.getElementById("icon1");
   var icon2 = document.getElementById("icon2");
   var icon3 = document.getElementById("icon3");
